@@ -111,10 +111,14 @@ run_button = st.button("🚀 RUN PREDICTION", use_container_width=True)
 # ==========================================
 # 4. XỬ LÝ DỮ LIỆU & DỰ ĐOÁN
 # ==========================================
-# LƯU Ý QUAN TRỌNG: Thứ tự các biến trong mảng input_data dưới đây 
-# PHẢI KHỚP TUYỆT ĐỐI với thứ tự cột trong DataFrame lúc bạn train trên Colab.
-# Giả định thứ tự là: tc, tECC, fc_c, fc_ECC, c1, c2_c1, alpha_s, fy, mu
-input_data = np.array([[c1, c2_c1, L/d, alpha_s, fc_c, fc_ECC, tc, tECC, fy, mu]])
+
+# Tính toán ngầm tỷ số L/d dựa trên chiều dày nền tc và nhịp L = 950mm
+cover = 15
+d = tc - cover
+L_d = round(950 / d, 3)
+
+# Mảng 10 biến theo ĐÚNG THỨ TỰ cột từ B -> K trong file CSV của thầy hướng dẫn
+input_data = np.array([[c1, c2_c1, L_d, alpha_s, fc_c, fc_ECC, tc, tECC, fy, mu]])
 
 if run_button:
     with st.spinner("Analyzing data..."):
@@ -127,6 +131,7 @@ if run_button:
         # Giải chuẩn hóa đầu ra
         prediction_real = prediction_norm[0][0] * (y_max - y_min) + y_min
         
+        # In kết quả
         st.success("Prediction Completed!")
         
         col_res1, col_res2 = st.columns(2)
