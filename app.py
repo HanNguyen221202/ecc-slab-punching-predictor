@@ -137,15 +137,26 @@ if run_button:
         col_res1, col_res2 = st.columns(2)
         with col_res1:
             MAE_error = 8.59 
-            st.markdown("<p style='font-size: 24px; font-weight: bold; margin-bottom: 0px;'>Predicted Punching Shear Capacity (Vp)</p>", unsafe_allow_html=True)
             st.markdown(
-                f"<div style='display: flex; align-items: baseline; gap: 8px; margin-bottom: 0px;'>"
-                f"<span style='font-size: 40px; font-weight: bold;'>{prediction_real:.2f} kN</span>"
-                f"<span style='font-size: 16px; color: #A5A5A5;'>± {MAE_error} kN Expected Error (MAE)</span>"
-                f"</div>",
+                f"""
+                <div style="background-color: #ffffff; padding: 20px; border-radius: 12px; box-shadow: 0 6px 16px rgba(0,0,0,0.08); border-left: 8px solid #4da6ff; display: flex; flex-direction: column; justify-content: center; height: 100%;">
+                    <div style="font-size: 15px; font-weight: 700; color: #7f8c8d; text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 4px;">
+                        Predicted Punching Shear Capacity
+                    </div>
+                    <div style="display: flex; align-items: baseline; gap: 8px; margin-bottom: 12px;">
+                        <span style="font-size: 52px; font-weight: 900; background: linear-gradient(90deg, #0f2027, #203a43, #2c5364); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">{prediction_real:.2f}</span>
+                        <span style="font-size: 26px; font-weight: 800; color: #203a43;">kN</span>
+                        <span style="font-size: 15px; font-weight: 500; color: #95a5a6; margin-left: 4px;">± {MAE_error} (MAE)</span>
+                    </div>
+                    <div>
+                        <span style="background-color: #e8f8f5; color: #1abc9c; padding: 6px 14px; border-radius: 20px; font-size: 13px; font-weight: 700; box-shadow: 0 2px 5px rgba(26, 188, 156, 0.15);">
+                            Optimized ANN Model (R² = 0.99)
+                        </span>
+                    </div>
+                </div>
+                """,
                 unsafe_allow_html=True
             )
-            st.markdown("<p style='font-size: 14px; color: #09AB3B; margin-top: 5px;'>↑ ANN Model (R² = 0.99)</p>", unsafe_allow_html=True)
         
         # Đảm bảo khối này thụt lề 8 dấu cách (nằm trọn vẹn trong if run_button:)
         with col_res2:
