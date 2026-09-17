@@ -116,10 +116,9 @@ st.markdown("---")
 run_button = st.button("RUN PREDICTION", use_container_width=True)
 
 # ==========================================
-# 4. XỬ LÝ DỮ LIỆU & DỰ ĐOÁN
+# 4. XỬ LÝ DỮ LIỆU & DỰ ĐOÁN (Chỉ giữ 1 khối duy nhất)
 # ==========================================
 # Mảng 10 biến nạp vào mô hình theo đúng thứ tự cột trong file CSV:
-# c1 | c2_c1 | L/d | alpha_s | fc,c | fc,ECC | tc | tECC | fy | mu
 input_data = np.array([[c1, c2_c1, L_d, alpha_s, fc_c, fc_ECC, tc, tECC, fy, mu]])
 
 if run_button:
@@ -146,53 +145,7 @@ if run_button:
                 f"</div>",
                 unsafe_allow_html=True
             )
-            st.markdown("<p style='font-size: 14px; color: #09AB3B; margin-top: 5px;'>↑ ANN Model</p>", unsafe_allow_html=True)
-        
-        with col_res2:
-            st.info(f"**Total Slab Thickness:** {tc + tECC:.1f} mm")
-
-# ==========================================
-# 4. XỬ LÝ DỮ LIỆU & DỰ ĐOÁN
-# ==========================================
-
-# Tính toán ngầm tỷ số L/d dựa trên chiều dày nền tc và nhịp L = 950mm
-cover = 15
-d = tc - cover
-L_d = round(950 / d, 3)
-
-# Mảng 10 biến theo ĐÚNG THỨ TỰ cột từ B -> K trong file CSV của thầy hướng dẫn
-input_data = np.array([[c1, c2_c1, L_d, alpha_s, fc_c, fc_ECC, tc, tECC, fy, mu]])
-
-if run_button:
-    with st.spinner("Analyzing data..."):
-        # Chuẩn hóa đầu vào (Min-Max)
-        input_scaled = (input_data - X_min) / (X_max - X_min)
-        
-        # Dự đoán
-        prediction_norm = model.predict(input_scaled)
-        
-        # Giải chuẩn hóa đầu ra
-        prediction_real = prediction_norm[0][0] * (y_max - y_min) + y_min
-        
-        # In kết quả
-        st.success("Prediction Completed!")
-        
-        col_res1, col_res2 = st.columns(2)
-        with col_res1:
-            # Bạn có thể cập nhật lại giá trị MAE theo kết quả đánh giá mô hình mới nhất trên tập Test
-            MAE_error = 8.59 
-            st.markdown("<p style='font-size: 24px; font-weight: bold; margin-bottom: 0px;'>Predicted Punching Shear Capacity (Vp)</p>", unsafe_allow_html=True)
-            st.markdown(
-                f"<div style='display: flex; align-items: baseline; gap: 8px; margin-bottom: 0px;'>"
-                f"<span style='font-size: 40px; font-weight: bold;'>{prediction_real:.2f} kN</span>"
-                f"<span style='font-size: 16px; color: #A5A5A5;'>± {MAE_error} kN Expected Error (MAE)</span>"
-                f"</div>",
-                unsafe_allow_html=True
-            )
-            # Cập nhật R2 theo mô hình mới
             st.markdown("<p style='font-size: 14px; color: #09AB3B; margin-top: 5px;'>↑ ANN Model (R² = 0.99)</p>", unsafe_allow_html=True)
         
         with col_res2:
             st.info(f"**Total Slab Thickness:** {tc + tECC:.1f} mm")
-
-st.markdown("---")
