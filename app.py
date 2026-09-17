@@ -146,7 +146,7 @@ if run_button:
                 unsafe_allow_html=True
             )
             st.markdown("<p style='font-size: 14px; color: #09AB3B; margin-top: 5px;'>↑ ANN Model (R² = 0.99)</p>", unsafe_allow_html=True)
-with col_res2:
+        with col_res2:
             # Dùng thẻ div HTML để tạo một hộp màu xanh tương tự st.info nhưng cỡ chữ to hơn
             st.markdown(
                 f"<div style='background-color: #e6f3ff; padding: 18px; border-radius: 8px; border-left: 6px solid #0088cc; display: flex; align-items: center; height: 100%;'>"
