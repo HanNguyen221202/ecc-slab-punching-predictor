@@ -88,7 +88,7 @@ with st.expander("**INPUT PARAMETERS (Click to Expand / Collapse)**", expanded=T
         d = tc - cover
         st.info(f"Slab's effective depth (d) auto-calculated: **{d} mm**")
 
-        st.subheader("4. ECC Layer Properties:")
+        st.subheader("4. ECC Layer Property:")
         fc_ECC = st.slider("ECC compressive strength - f'c,ECC (MPa)", 31, 60, 31)
 
     # CỘT 2: Cấu hình hình học
@@ -105,7 +105,7 @@ with st.expander("**INPUT PARAMETERS (Click to Expand / Collapse)**", expanded=T
 
     # CỘT 3: Đặc tính Bê tông & Thép
     with col3:
-        st.subheader("3. Normal Concrete (NC) Properties:")
+        st.subheader("3. Normal Concrete (NC) Property:")
         fc_c = st.slider("Concrete compressive strength - f'c,c (MPa)", 30, 60, 30)
         
         st.subheader("5. Reinforcement Details:")
