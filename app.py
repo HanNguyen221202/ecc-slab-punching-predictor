@@ -3,6 +3,7 @@ import numpy as np
 import os
 from tensorflow.keras.models import load_model
 
+st.set_page_config(page_title="ECC-Slab Predictor (Optimized)", layout="wide")
 # ==========================================
 # 0. TÙY CHỈNH CSS (Giữ nguyên font chữ to, rõ)
 # ==========================================
@@ -36,7 +37,7 @@ st.markdown(
 # ==========================================
 # 1. PAGE CONFIGURATION
 # ==========================================
-st.set_page_config(page_title="ECC-Slab Predictor (Optimized)", layout="wide")
+
 st.title("Prediction of Punching Shear Capacity of ECC-Strengthened Flat Slabs")
 st.markdown("##### **A Product Developed by:** Dr. Cong-Luyen Nguyen | Ngoc Han Nguyen & Duc Nhan Hoang")
 st.markdown("---")
