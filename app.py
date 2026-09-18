@@ -3,7 +3,7 @@ import numpy as np
 import os
 from tensorflow.keras.models import load_model
 
-st.set_page_config(page_title="ECC-Slab Predictor (Optimized)", layout="wide")
+st.set_page_config(page_title="ECC-Slab Predictor", layout="wide")
 
 st.markdown(
     """
