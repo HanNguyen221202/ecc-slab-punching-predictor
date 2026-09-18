@@ -36,7 +36,7 @@ st.markdown(
 # 1. PAGE CONFIGURATION
 # ==========================================
 
-st.title("Prediction of Punching Shear Capacity of ECC-Strengthened Flat ESRC Slabs")
+st.title("Prediction of Punching Shear Capacity of ECC-Strengthened Flat (ESRC) Slabs")
 st.markdown("##### **Developed by:** Dr. Cong-Luyen Nguyen | Ngoc Han Nguyen & Duc Nhan Hoang")
 st.markdown("---")
 
@@ -89,7 +89,7 @@ with st.expander("**INPUT PARAMETERS (Click to Expand / Collapse)**", expanded=T
         st.info(f"Slab's effective depth (d) auto-calculated: **{d} mm**")
 
         st.subheader("4. ECC Layer Property:")
-        fc_ECC = st.slider("ECC compressive strength - f'c,ECC (MPa)", 31, 60, 31)
+        fc_ECC = st.slider("ECC compressive strength - fc,ECC (MPa)", 31, 60, 31)
 
     # CỘT 2: Cấu hình hình học
     with col2:
@@ -106,7 +106,7 @@ with st.expander("**INPUT PARAMETERS (Click to Expand / Collapse)**", expanded=T
     # CỘT 3: Đặc tính Bê tông & Thép
     with col3:
         st.subheader("3. Normal Concrete (NC) Property:")
-        fc_c = st.slider("Concrete compressive strength - f'c,c (MPa)", 30, 60, 30)
+        fc_c = st.slider("Concrete compressive strength - fc,c (MPa)", 30, 60, 30)
         
         st.subheader("5. Reinforcement Details:")
         fy = st.slider("Rebar yield strength - fy (MPa)", 456, 750, 456)
