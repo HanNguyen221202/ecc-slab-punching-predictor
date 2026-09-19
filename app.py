@@ -116,7 +116,7 @@ run_button = st.button("RUN PREDICTION", use_container_width=True)
 # 4. XỬ LÝ DỮ LIỆU & DỰ ĐOÁN (Chỉ giữ 1 khối duy nhất)
 # ==========================================
 # Mảng 10 biến nạp vào mô hình theo đúng thứ tự cột trong file CSV:
-input_data = np.array([[c1, c2_c1, L_d, alpha_s, fc_c, fc_ECC, tc, tECC, fy, mu]])
+input_data = np.array([[c1, c2_c1, alpha_s, fc_c, fc_ECC, tc, tECC, fy, mu]])
 
 if run_button:
     with st.spinner("Analyzing data..."):
