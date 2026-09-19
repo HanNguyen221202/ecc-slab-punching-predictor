@@ -107,7 +107,7 @@ with st.expander("**INPUT PARAMETERS (Click to Expand / Collapse)**", expanded=T
         
         st.subheader("5. Reinforcement Details:")
         fy = st.slider("Rebar yield strength - fy (MPa)", 456, 750, 456)
-        mu = st.slider("Reinforcement ratio - μ (%)", 1.227, 2.454, 1.227, step=0.001)
+        mu = st.slider("Reinforcement ratio - μ (%)", 1.227, 2.454, 1.227, step=0.001, format="%.3f")
 
 st.markdown("---")
 run_button = st.button("RUN PREDICTION", use_container_width=True)
