@@ -97,9 +97,6 @@ with st.expander("**INPUT PARAMETERS (Click to Expand / Collapse)**", expanded=T
         c1 = st.slider("Column's short side dimension - c1 (mm)", 150, 250, 150)
         c2_c1 = st.slider("Long-to-short side dimension ratio - c2/c1", 1.00, 1.67, 1.0)
         
-        # Thanh trượt L/d tùy chọn độc lập trong dải giới hạn CSV
-        L_d = st.slider("Shear span to effective depth ratio - L/d", 6.552, 11.176, 8.261, step=0.001)
-        
         # 2: Corner, 3: Edge, 4: Interior
         alpha_s = st.selectbox("Loading location - αs (2: Corner, 3: Edge, 4: Interior)", [2.0, 3.0, 4.0], index=2)
 
